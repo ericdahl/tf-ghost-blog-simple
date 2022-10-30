@@ -20,6 +20,8 @@ resource "aws_ecs_task_definition" "ghost" {
     #    database_port = aws_rds_cluster.ghost[0].port
   })
 
+
+
   requires_compatibilities = [
     "FARGATE",
   ]
@@ -43,6 +45,7 @@ resource "aws_security_group_rule" "ghost_ingress_world" {
   to_port   = 2368
   type      = "ingress"
 
+  # TODO: update to CloudFront prefix list
   cidr_blocks = ["0.0.0.0/0"]
 }
 

@@ -13,12 +13,12 @@
         "protocol": "tcp"
       }
     ],
-    "loggingConfiguration": {
+    "logConfiguration": {
       "logDriver": "awslogs",
       "options": {
         "awslogs-group": "${cloudwatch_log_group}",
         "awslogs-region": "${cloudwatch_log_group_region}",
-        "awslogs-create-group": "true"
+        "awslogs-stream-prefix": "ghost"
       }
     }
   }
