@@ -1,0 +1,25 @@
+[
+  {
+    "essential": true,
+    "name": "ghost",
+    "image": "ghost:4",
+    "environment": [
+      { "name" : "NODE_ENV", "value" : "development" }
+    ],
+    "portMappings": [
+      {
+        "hostPort": 2368,
+        "containerPort": 2368,
+        "protocol": "tcp"
+      }
+    ],
+    "loggingConfiguration": {
+      "logDriver": "awslogs",
+      "options": {
+        "awslogs-group": "${cloudwatch_log_group}",
+        "awslogs-region": "${cloudwatch_log_group_region}",
+        "awslogs-create-group": "true"
+      }
+    }
+  }
+]
