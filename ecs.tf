@@ -49,6 +49,30 @@ resource "aws_security_group_rule" "ghost_ingress_world" {
   cidr_blocks = ["0.0.0.0/0"]
 }
 
+resource "aws_security_group_rule" "ghost_ingress_8080_world" {
+  security_group_id = aws_security_group.ghost.id
+  protocol          = "tcp"
+
+  from_port = 8080
+  to_port   = 8080
+  type      = "ingress"
+
+  # TODO: update to CloudFront prefix list
+  cidr_blocks = ["0.0.0.0/0"]
+}
+
+resource "aws_security_group_rule" "ghost_ingress_80_world" {
+  security_group_id = aws_security_group.ghost.id
+  protocol          = "tcp"
+
+  from_port = 80
+  to_port   = 80
+  type      = "ingress"
+
+  # TODO: update to CloudFront prefix list
+  cidr_blocks = ["0.0.0.0/0"]
+}
+
 resource "aws_security_group_rule" "ghost_egress_all" {
   security_group_id = aws_security_group.ghost.id
   type              = "egress"
