@@ -2,7 +2,7 @@
   {
     "essential": true,
     "name": "ghost",
-    "image": "ghost:4",
+    "image": "ghost:5.22",
     "environment": [
       { "name" : "NODE_ENV", "value" : "development" }
     ],
