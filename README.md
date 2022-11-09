@@ -18,7 +18,12 @@ This is a self-contained app to self-host on ECS. Goals:
 
 ## TODO
 
-- fix lambda logic for r53 querying - just query EC2 ENIs direct?
+- API GW - create
+  - http / vpc link default route to CloudMap
+  - 
+
+- remove lambda logic?
+  - fix lambda logic for r53 querying - just query EC2 ENIs direct?
 - fargate spot
 - EFS?
 - ECS service discovery for DNS?
