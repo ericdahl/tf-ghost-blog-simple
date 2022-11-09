@@ -106,4 +106,30 @@ resource "aws_ecs_service" "ghost" {
 
     assign_public_ip = true
   }
+
+  service_registries {
+    registry_arn = aws_service_discovery_service.ghost.arn
+
+    container_name = "ghost"
+    container_port = 2368
+  }
+}
+
+resource "aws_service_discovery_private_dns_namespace" "default" {
+  name = "services.internal"
+  vpc  = aws_vpc.default.id
+}
+
+resource "aws_service_discovery_service" "ghost" {
+  name = "ghost"
+
+  dns_config {
+
+    namespace_id = aws_service_discovery_private_dns_namespace.default.id
+    dns_records {
+      ttl  = 10
+      type = "SRV"
+    }
+  }
+
 }
