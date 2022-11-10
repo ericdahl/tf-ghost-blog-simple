@@ -18,13 +18,11 @@ This is a self-contained app to self-host on ECS. Goals:
 
 ## TODO
 
-- API GW - create
-  - http / vpc link default route to CloudMap
-  - 
+- API GW
+  - access logs, etc
+  - try public cloudmap zone with internet integration?
+- ghost
+  - configure URL?
 
-- remove lambda logic?
-  - fix lambda logic for r53 querying - just query EC2 ENIs direct?
 - fargate spot
 - EFS?
-- ECS service discovery for DNS?
-- doesn't work if port < 1024?
