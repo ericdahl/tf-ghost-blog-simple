@@ -1,7 +1,3 @@
-resource "aws_ecs_cluster" "default" {
-  name = "tf-ghost-blog-simple"
-}
-
 resource "aws_cloudwatch_log_group" "ghost" {
   name              = "ghost"
   retention_in_days = 1

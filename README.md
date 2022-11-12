@@ -23,6 +23,7 @@ This is a self-contained app to self-host on ECS. Goals:
   - try public cloudmap zone with internet integration?
 - ghost
   - configure URL?
+- tune vpc link sg
 
 - fargate spot
 - EFS?

@@ -5,5 +5,3 @@ variable "availability_zones" {
 variable "admin_cidr" {}
 
 variable "ssh_public_key" {}
-
-variable "zone_id" {}
