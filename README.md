@@ -26,4 +26,3 @@ This is a self-contained app to self-host on ECS. Goals:
 - tune vpc link sg
 
 - fargate spot
-- EFS?
