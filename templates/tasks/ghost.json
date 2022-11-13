@@ -5,6 +5,7 @@
     "image": "ghost:5.22",
     "environment": [
       { "name" : "url", "value" : "${url}" },
+      { "name" : "DEBUG", "value" : "*" },
       { "name" : "database__client", "value" : "sqlite3" },
       { "name" : "database__connection__filename", "value" : "/var/lib/ghost/content/data/ghost.db" }
 
