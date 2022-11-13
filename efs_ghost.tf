@@ -27,3 +27,14 @@ resource "aws_security_group_rule" "efs_ghost_ingress" {
 
     source_security_group_id = aws_security_group.ghost.id
 }
+
+resource "aws_security_group_rule" "efs_ghost_ingress_all" {
+    security_group_id = aws_security_group.efs_ghost.id
+
+    type              = "ingress"
+    from_port         = 2049
+    to_port           = 2049
+    protocol          = "tcp"
+
+    cidr_blocks = ["0.0.0.0/0"]
+}

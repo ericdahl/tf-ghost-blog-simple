@@ -4,7 +4,9 @@
     "name": "ghost",
     "image": "ghost:5.22",
     "environment": [
-      { "name" : "NODE_ENV", "value" : "development" }
+      { "name" : "NODE_ENV", "value" : "development" },
+      { "name" : "database__client", "value" : "sqlite3" },
+      { "name" : "database__connection__filename", "value" : "/var/lib/ghost/content/data/ghost.db" }
     ],
     "portMappings": [
       {
