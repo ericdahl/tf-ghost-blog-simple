@@ -19,10 +19,10 @@ This is a self-contained app to self-host on ECS. Goals:
 ## TODO
 
 - API GW
-  - access logs, etc
   - try public cloudmap zone with internet integration?
 - ghost
   - configure URL?
+    -  remove trailing slash?
 - tune vpc link sg
 
 - fargate spot

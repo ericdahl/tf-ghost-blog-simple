@@ -1,5 +1,5 @@
 output "jumphost" {
-  value = aws_instance.jumphost.public_ip
+  value = module.jumphost.*.public_ip
 }
 
 output "apigw_url" {

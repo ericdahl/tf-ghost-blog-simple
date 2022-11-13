@@ -20,6 +20,13 @@
         "awslogs-region": "${cloudwatch_log_group_region}",
         "awslogs-stream-prefix": "ghost"
       }
-    }
+    },
+    "mountPoints": [
+      {
+        "sourceVolume": "efs-ghost",
+        "containerPath": "/var/lib/ghost/content",
+        "readOnly": false
+      }
+    ]
   }
 ]

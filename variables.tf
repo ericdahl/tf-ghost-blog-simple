@@ -5,3 +5,7 @@ variable "availability_zones" {
 variable "admin_cidr" {}
 
 variable "ssh_public_key" {}
+
+variable "enable_jumphost" {
+  default = false
+}

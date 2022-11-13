@@ -9,6 +9,8 @@ resource "aws_ecs_task_definition" "ghost" {
   container_definitions = templatefile("templates/tasks/ghost.json", {
     cloudwatch_log_group        = aws_cloudwatch_log_group.ghost.name
     cloudwatch_log_group_region = "us-east-1"
+    url = ""
+#    url                         = trimsuffix(aws_apigatewayv2_stage.ghost.invoke_url, "/")
     #    url           = "http://${aws_alb.ecs_service_ghost[0].dns_name}"
     #    database_host = aws_rds_cluster.ghost[0].endpoint
     #    database_name = aws_rds_cluster.ghost[0].database_name
@@ -27,6 +29,16 @@ resource "aws_ecs_task_definition" "ghost" {
   network_mode = "awsvpc"
   cpu          = 512
   memory       = 2048
+
+  volume {
+    name = "efs-ghost"
+
+    efs_volume_configuration {
+      file_system_id = aws_efs_file_system.ghost.id
+#      root_directory = "/opt/ghost"
+
+    }
+  }
 }
 
 resource "aws_security_group" "ghost" {
