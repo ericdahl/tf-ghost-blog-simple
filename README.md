@@ -18,6 +18,8 @@ This is a self-contained app to self-host on ECS. Goals:
 
 ## TODO
 
+- Get CloudFront working - redirect loop
+- X-Forwarded-Proto
 - API GW
   - try public cloudmap zone with internet integration?
 - ghost
