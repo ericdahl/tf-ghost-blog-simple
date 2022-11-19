@@ -8,7 +8,9 @@ provider "aws" {
   }
 }
 
-
+locals {
+  cloudfront_url = "https://${aws_cloudfront_distribution.ghost.domain_name}"
+}
 
 module "jumphost" {
   count = var.enable_jumphost ? 1 : 0
