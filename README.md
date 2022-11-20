@@ -18,9 +18,8 @@ This is a self-contained app to self-host on ECS. Goals:
 
 ## TODO
 
+- store files in S3
 - avoid DNS service discovery
-- Get CloudFront working - redirect loop
-- X-Forwarded-Proto
 - API GW
   - try public cloudmap zone with internet integration?
 - tune vpc link sg
