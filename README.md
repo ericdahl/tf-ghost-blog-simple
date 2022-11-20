@@ -24,3 +24,4 @@ This is a self-contained app to self-host on ECS. Goals:
 - try to avoid public IP on task?
 - API GW
   - try public cloudmap zone with internet integration?
+- optional dns alias
