@@ -1,6 +1,6 @@
 # tf-ghost-blog-simple
 
-Run Ghost Blog in AWS on ECS, in a simple way (i.e., cheap and not resilient)
+Run Ghost Blog in AWS on ECS, in a cheap way (i.e., no fixed AWS costs)
 
 This is a self-contained app to self-host on ECS. Goals:
 
@@ -18,13 +18,11 @@ This is a self-contained app to self-host on ECS. Goals:
 
 ## TODO
 
+- avoid DNS service discovery
 - Get CloudFront working - redirect loop
 - X-Forwarded-Proto
 - API GW
   - try public cloudmap zone with internet integration?
-- ghost
-  - configure URL?
-    -  remove trailing slash?
 - tune vpc link sg
 
 - fargate spot

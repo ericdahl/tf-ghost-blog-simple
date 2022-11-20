@@ -34,7 +34,7 @@ resource "aws_ecs_task_definition" "ghost" {
 
     efs_volume_configuration {
       file_system_id = aws_efs_file_system.ghost.id
-#      root_directory = "/opt/ghost"
+      #      root_directory = "/opt/ghost"
 
     }
   }
