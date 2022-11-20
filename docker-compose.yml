@@ -1,0 +1,19 @@
+version: '3'
+services:
+  nginx:
+    build: ghost-proxy
+#    image: ericdahl/ghost-proxy:20221120-1105-23be717
+    container_name: nginx
+    ports:
+      - '8080:8080'
+    links:
+      - ghost
+
+  ghost:
+    image: ghost:5.22
+    container_name: ghost
+    environment:
+      - url=http://localhost:8080
+      - NODE_ENV=development
+    ports:
+      - '2368:2368'
