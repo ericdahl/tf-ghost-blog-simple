@@ -117,8 +117,8 @@ resource "aws_ecs_service" "ghost" {
   service_registries {
     registry_arn = aws_service_discovery_service.ghost.arn
 
-    container_name = "ghost"
-    container_port = 2368
+    container_name = "ghost-proxy"
+    container_port = 8080
   }
 }
 

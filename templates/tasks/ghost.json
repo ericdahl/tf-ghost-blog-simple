@@ -1,6 +1,28 @@
 [
   {
     "essential": true,
+    "name": "ghost-proxy",
+    "image": "ericdahl/ghost-proxy:20221120-1127-23be717",
+    "environment": [
+    ],
+    "portMappings": [
+      {
+        "hostPort": 8080,
+        "containerPort": 8080,
+        "protocol": "tcp"
+      }
+    ],
+    "logConfiguration": {
+      "logDriver": "awslogs",
+      "options": {
+        "awslogs-group": "${cloudwatch_log_group}",
+        "awslogs-region": "${cloudwatch_log_group_region}",
+        "awslogs-stream-prefix": "ghost-proxy"
+      }
+    }
+  },
+  {
+    "essential": true,
     "name": "ghost",
     "image": "ghost:5.22",
     "environment": [

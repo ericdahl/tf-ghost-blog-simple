@@ -13,6 +13,7 @@ resource "aws_apigatewayv2_integration" "ghost" {
   connection_type = "VPC_LINK"
   connection_id   = aws_apigatewayv2_vpc_link.ghost.id
 
+  # Note: doesn't work. API GW blocks configuring this particular header
 #  request_parameters = {
 #    "append:header.X-Forwarded-Proto" = "https"
 #  }

@@ -27,10 +27,11 @@ resource "aws_cloudfront_distribution" "ghost" {
       origin_ssl_protocols     = ["TLSv1.2"]
 
     }
-    custom_header {
-      name  = "X-Forwarded-Proto"
-      value = "https"
-    }
+    # Note: doesn't seem to work; CloudFront strips this out
+#    custom_header {
+#      name  = "X-Forwarded-Proto"
+#      value = "https"
+#    }
   }
   restrictions {
     geo_restriction {
