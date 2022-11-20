@@ -10,14 +10,7 @@ resource "aws_ecs_task_definition" "ghost" {
     cloudwatch_log_group        = aws_cloudwatch_log_group.ghost.name
     cloudwatch_log_group_region = "us-east-1"
     url                         = local.cloudfront_url
-    #    url           = "http://${aws_alb.ecs_service_ghost[0].dns_name}"
-    #    database_host = aws_rds_cluster.ghost[0].endpoint
-    #    database_name = aws_rds_cluster.ghost[0].database_name
-    #    database_user = aws_rds_cluster.ghost[0].master_username
-    #    database_port = aws_rds_cluster.ghost[0].port
   })
-
-
 
   requires_compatibilities = [
     "FARGATE",
@@ -34,8 +27,6 @@ resource "aws_ecs_task_definition" "ghost" {
 
     efs_volume_configuration {
       file_system_id = aws_efs_file_system.ghost.id
-      #      root_directory = "/opt/ghost"
-
     }
   }
 }
@@ -44,7 +35,7 @@ resource "aws_security_group" "ghost" {
   vpc_id = aws_vpc.default.id
 }
 
-resource "aws_security_group_rule" "ghost_ingress_world" {
+resource "aws_security_group_rule" "ghost_ingress_admin" {
   security_group_id = aws_security_group.ghost.id
   protocol          = "tcp"
 
@@ -52,11 +43,10 @@ resource "aws_security_group_rule" "ghost_ingress_world" {
   to_port   = 2368
   type      = "ingress"
 
-  # TODO: update to CloudFront prefix list
-  cidr_blocks = ["0.0.0.0/0"]
+  cidr_blocks = [var.admin_cidr]
 }
 
-resource "aws_security_group_rule" "ghost_ingress_8080_world" {
+resource "aws_security_group_rule" "ghost_ingress_8080_admin" {
   security_group_id = aws_security_group.ghost.id
   protocol          = "tcp"
 
@@ -64,8 +54,18 @@ resource "aws_security_group_rule" "ghost_ingress_8080_world" {
   to_port   = 8080
   type      = "ingress"
 
-  # TODO: update to CloudFront prefix list
-  cidr_blocks = ["0.0.0.0/0"]
+  cidr_blocks = [var.admin_cidr]
+}
+
+resource "aws_security_group_rule" "ghost_ingress_8080_vpc_link" {
+  security_group_id = aws_security_group.ghost.id
+  protocol          = "tcp"
+
+  from_port = 8080
+  to_port   = 8080
+  type      = "ingress"
+
+  source_security_group_id = aws_security_group.ghost_api_gw_vpc_link.id
 }
 
 resource "aws_security_group_rule" "ghost_egress_all" {
