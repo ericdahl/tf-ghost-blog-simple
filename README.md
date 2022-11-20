@@ -19,6 +19,8 @@ This is a self-contained app to self-host on ECS. Goals:
 ## TODO
 
 - store files in S3
-- avoid DNS service discovery
+- avoid DNS service discovery?
+  - not sure if possible. Docs refer to SRV records
+- try to avoid public IP on task?
 - API GW
   - try public cloudmap zone with internet integration?
