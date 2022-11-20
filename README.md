@@ -22,5 +22,3 @@ This is a self-contained app to self-host on ECS. Goals:
 - avoid DNS service discovery
 - API GW
   - try public cloudmap zone with internet integration?
-
-- fargate spot
